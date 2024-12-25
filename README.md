@@ -6,3 +6,4 @@ git add .
 git config --global user.name
 git config --global user.email
 git config --list
+git commit -m "message"
