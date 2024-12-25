@@ -1,10 +1,10 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-const URI =
-  "mongodb+srv://vedantdhawade:mazapasswordbhari@cluster0.metsr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(URI, {
@@ -19,8 +19,7 @@ mongoose
   });
 
 const app = express();
-
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
