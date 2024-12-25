@@ -7,7 +7,7 @@ function AdminLayout({ sidebar, header, children }) {
   return (
     <div className="min-h-screen flex bg-gray-100">
       <aside className="w-64 bg-white shadow-md">
-        <div className="h-full p-4">
+        <div className="h-full">
           <Sidebar />
         </div>
       </aside>

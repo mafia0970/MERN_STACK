@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -8,30 +9,30 @@ function Sidebar() {
       </div>
 
       <nav className="flex-1 p-4 space-y-4">
-        <a
-          href="/dashboard"
+        <NavLink
+          to={"/admin/dashboard"}
           className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition"
         >
           Dashboard
-        </a>
-        <a
-          href="/users"
+        </NavLink>
+        <NavLink
+          to={"/admin/features"}
           className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition"
         >
-          Users
-        </a>
-        <a
-          href="/orders"
+          Features
+        </NavLink>
+        <NavLink
+          to={"/admin/orders"}
           className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition"
         >
           Orders
-        </a>
-        <a
-          href="/settings"
+        </NavLink>
+        <NavLink
+          to={"/admin/products"}
           className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition"
         >
-          Settings
-        </a>
+          Products
+        </NavLink>
       </nav>
 
       <div className="p-4 bg-gray-900">
