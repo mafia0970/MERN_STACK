@@ -1,6 +1,9 @@
 import Form from "@/components/common/Form";
 import { registerFormControls } from "@/config";
+import { useToast } from "@/hooks/use-toast";
+import { registerUser } from "@/store/auth-slice";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const initialState = {
@@ -11,10 +14,24 @@ const initialState = {
 
 const Register = () => {
   const [formData, setFormdata] = useState(initialState);
-  console.log(formData);
+  const dispatch = useDispatch();
+  const { toast } = useToast();
+
   const onsubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    try {
+      dispatch(registerUser(formData)).then((res) => {
+        if (res.payload.success) {
+          toast({
+            title: "Success",
+            description: `${res.payload.message}`,
+          });
+          setFormdata(initialState);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
