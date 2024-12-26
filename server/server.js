@@ -3,7 +3,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const authRoutes = require("./routes/auth/auth-route");
 const URI = process.env.MONGODB_URI;
 
 mongoose
@@ -25,15 +25,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/api/auth", authRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

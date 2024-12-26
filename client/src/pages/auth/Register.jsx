@@ -4,15 +4,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const initialState = {
-  name: "",
-  email: "",
-  password: "",
+  Username: "",
+  Email: "",
+  Password: "",
 };
 
 const Register = () => {
   const [formData, setFormdata] = useState(initialState);
-
-  const onsubmit = () => {
+  console.log(formData);
+  const onsubmit = (e) => {
+    e.preventDefault();
     console.log("submitted");
   };
 
